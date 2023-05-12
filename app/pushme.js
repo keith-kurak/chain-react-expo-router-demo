@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Stack } from "expo-router";
+import { Stack, Link } from "expo-router";
 
 export default function Page() {
   return (
@@ -8,6 +8,7 @@ export default function Page() {
       <View style={styles.container}>
         <View style={styles.main}>
           <Text style={styles.title}>Pushed me onto the stack</Text>
+          <Link href="pushme2">Push another screen</Link>
         </View>
       </View>
     </>
