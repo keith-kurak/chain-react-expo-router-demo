@@ -1,14 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Tabs } from 'expo-router';
+import { Stack, Link, usePathname } from "expo-router";
 
 export default function Page() {
+  const pathname = usePathname();
+  const word = pathname.split("/")[2];
   return (
-    <View style={styles.container}>
-      <Tabs.Screen options={{ title: 'Just Tab Three'}} />
-      <View style={styles.main}>
-        <Text style={styles.title}>Tab 3</Text>
+    <>
+      <Stack.Screen options={{ title: word }} />
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <Text style={styles.subtitle}>
+            Foolish words, or pretentious nonsense, probably, all these words
+            mean about the same thing
+          </Text>
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 

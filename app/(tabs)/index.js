@@ -1,14 +1,42 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Link, Tabs } from 'expo-router';
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import { Link, Tabs } from "expo-router";
+
+const oldTimeyWords = [
+  "Flapdoodle",
+  "Gardyloo",
+  "Horsefeathers",
+  "Kerfuffle",
+  "Lickety-split",
+  "Malarkey",
+  "Mugwump",
+  "Nincompoop",
+  "Monkeyshine",
+  "Bafflegab",
+  "Stultiloquence",
+];
 
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <Tabs.Screen options={{ title: 'Tab One'}} />
-      <View style={styles.main}>
-        <Text style={styles.title}>Tab One</Text>
-        <Link href="/pushme">Push a screen</Link>
-      </View>
+    <View style={{ flex: 1 }}>
+      <Tabs.Screen options={{ title: "Old-Timey Words" }} />
+      <FlatList
+        data={oldTimeyWords}
+        keyExtractor={(item) => item}
+        ItemSeparatorComponent={() =>
+          <View
+            style={{ marginHorizontal: 14, height: 1, backgroundColor: "gray" }}
+          />
+        }
+        renderItem={({ item }) => (
+          <View style={{ flex: 1 }}>
+            <Link href={`/words/${item}`}>
+              <View style={{ padding: 14 }}>
+                <Text style={{ fontSize: 22 }}>{item}</Text>
+              </View>
+            </Link>
+          </View>
+        )}
+      />
     </View>
   );
 }
