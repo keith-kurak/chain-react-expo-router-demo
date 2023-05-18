@@ -24,6 +24,11 @@ export default function Page() {
           />
           <Text style={{ alignSelf: 'center', marginTop: 10}}>bit.ly/notgrandpasexpo</Text>
         </View>
+        <View
+          style={{ position: "absolute", top: 0, left: 0, padding: 30 }}
+        >
+          <Text style={{ alignSelf: 'center', fontSize: 18, marginTop: 10}}>🐦 @llamaluvr</Text>
+        </View>
       </View>
     </>
   );
